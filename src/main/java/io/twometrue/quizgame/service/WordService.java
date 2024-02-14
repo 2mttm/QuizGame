@@ -21,7 +21,8 @@ public class WordService {
     }
     public Word getRandom(){
         long qty = wordRepository.count();
-        Optional<Word> word = wordRepository.findById((long) (Math.random() * qty));
+        long rnd = (long) (Math.random() * qty) + 1;
+        Optional<Word> word = wordRepository.findById(rnd);
         return word.get();
     }
 }
